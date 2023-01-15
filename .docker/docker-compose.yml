@@ -1,0 +1,44 @@
+# Версия docker-compose
+version: '3.8'
+# Список наших серверов (контейнеров)
+services:
+  php:
+    container_name: fraimeworkt
+    image: fraimeworkt_php
+    build:
+      context: .
+      dockerfile: ./images/php/Dockerfile
+    volumes:
+      - ../:/var/www/html
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - NETTE_DEBUG=1
+    links:
+      - db
+
+  db:
+    container_name: fraimeworkt_db
+    image: fraimeworkt_db
+    build:
+      context: .
+      dockerfile: ./images/mysql/Dockerfile
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: test
+    volumes:
+      - ./images/mysql/user.sql:/docker-entrypoint-initdb.d/user.sql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 8081:80
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=test
+      - PMA_PASSWORD=test

@@ -2,7 +2,6 @@
 
 function route($method, $urlList, $requestData, $ipAllowed)
 {
-    echo $ipAllowed->isAllowed()->whitelist;
     global $Link;
     switch($method){
         case 'GET':

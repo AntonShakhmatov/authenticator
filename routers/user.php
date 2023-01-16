@@ -11,7 +11,7 @@ function route($method, $urlList, $requestData, $ipAllowed)
             if(!is_null($userFromToken))
             {
                 $userId = $userFromToken['userId'];
-                $user = $Link->query("SELECT * FROM users WHERE id = '$userId'")->fetch_assoc();
+                $user = $Link->query("SELECT id, chat_id, chanel_id, name, login FROM users WHERE id = '$userId'")->fetch_assoc();
                 echo json_encode($user);
             }
                 else
@@ -29,7 +29,6 @@ function route($method, $urlList, $requestData, $ipAllowed)
         {
             $chat_id = $requestData->body->chat_id;
             $name = $requestData->body->name;
-            $login = $requestData->body->login;
             $password = hash("sha1", $requestData->body->password);
             $userInsertResult = $Link->query("INSERT INTO users(chat_id, name, login, password) VALUES('$chat_id', '$name', '$login', '$password')");
 

@@ -25,7 +25,7 @@ function route($method, $urlList, $requestData, $ipAllowed)
             }
             else
             {
-                setHTTPStatus("400", "Success");
+                setHTTPStatus("200", "Success");
             }
 
             echo json_encode($requestData);

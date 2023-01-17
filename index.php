@@ -32,24 +32,6 @@ function getMethod()
     return $_SERVER['REQUEST_METHOD'];
 }
 
-function isAllowed($ip){
-    $whitelist = array('0:0:0:0:0:0:0:1', '127.0.0.1', '68.71.44.*');
-
-    if(in_array($ip, $whitelist)) {
-        return true;
-    }
-
-    foreach($whitelist as $i){
-        $wildcardPos = strpos($i, "*");
-
-        if($wildcardPos !== false && substr($ip, 0, $wildcardPos) . "*" == $i) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
 $message = [];
 $message["users"] = [];
 
@@ -60,12 +42,11 @@ $urlList = explode('/', $url);
 $router = $urlList[0];
 $requestData = getData(getMethod());
 $method = getMethod();
-$ipAllowed = isAllowed($_SERVER['REMOTE_ADDR']);
 
 if(file_exists(realpath(dirname(__FILE__)).'/routers/' . $router . '.php' ))
 {
     include_once 'routers/' . $router . '.php';
-    route($method, $urlList, $requestData, $ipAllowed);
+    route($method, $urlList, $requestData);
 }
 else
 {

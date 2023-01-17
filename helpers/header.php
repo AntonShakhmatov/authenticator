@@ -9,7 +9,10 @@ function setHTTPStatus($status = "200", $message = null)
             $status = "HTTP/1.0 102 Is existing";
             break;
         case "200":
-            $status = "HTTP/1.0 200 OK";
+            $status = "HTTP/1.0 200 Success";
+            break;
+        case "303":
+            $status = "HTTP/1.0 303 Already exist";
             break;
         case "400":
             $status = "HTTP/1.0 400 Bad Request";

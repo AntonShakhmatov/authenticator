@@ -38,7 +38,7 @@ function route($method, $urlList, $requestData)
             }
             else
             {
-                setHTTPStatus("400", "Bad Request");
+                setHTTPStatus("401", "Unauthorized");
             }
 
         break;
@@ -67,7 +67,7 @@ function route($method, $urlList, $requestData)
         else
         {
             //exit
-            echo "Login existing";
+            setHTTPStatus("303", "Already exist");
         }
 
         break;

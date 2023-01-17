@@ -2,7 +2,7 @@ showContent(0);
 changeContent();
 
 function showContent(index) {
-    const content = [showSession(), showProfile(), showEditProfile(), showLogout()];
+    const content = [showSession(), showProfile(), showLogout(), showEditProfile()];
     document.querySelector('#content').innerHTML = content[index];
     copyClipboard();
 }

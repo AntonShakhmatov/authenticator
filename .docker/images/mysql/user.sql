@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 15 2023 г., 21:45
+-- Время создания: Янв 18 2023 г., 20:33
 -- Версия сервера: 10.4.14-MariaDB
 -- Версия PHP: 7.4.28
 
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- База данных: `user`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `receiver`
+--
+
+CREATE TABLE `receiver` (
+  `chat_id` int(25) NOT NULL,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -47,17 +59,33 @@ CREATE TABLE `tokens` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `updates`
+--
+
+CREATE TABLE `updates` (
+  `chat_id` int(25) NOT NULL,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
 CREATE TABLE `users` (
   `id` int(255) NOT NULL,
-  `chat_id` int(11) NOT NULL,
-  `chanel_id` int(11) NOT NULL,
-  `name` varchar(120) NOT NULL,
   `login` varchar(60) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `login`, `password`) VALUES
+(24, 'Anton', 'd6874ebfa599562a5e640b6d274de7381596943b');
 
 --
 -- Индексы сохранённых таблиц
@@ -74,7 +102,7 @@ ALTER TABLE `telegram`
 -- Индексы таблицы `tokens`
 --
 ALTER TABLE `tokens`
-  ADD PRIMARY KEY (`userId`),
+  ADD PRIMARY KEY (`token`),
   ADD KEY `userId` (`userId`);
 
 --
@@ -98,13 +126,13 @@ ALTER TABLE `telegram`
 -- AUTO_INCREMENT для таблицы `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

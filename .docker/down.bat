@@ -1,1 +1,1 @@
-docker-compose -p fraime down
+docker-compose -p fraimeworkt down

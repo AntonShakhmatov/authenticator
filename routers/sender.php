@@ -36,7 +36,7 @@ function route($method, $urlList, $requestData)
 
             if(!$fp)
             {
-                setHTTPStatus("400", "Bad Request");
+                setHTTPStatus("403", "Forbidden");
             }
             else
             {

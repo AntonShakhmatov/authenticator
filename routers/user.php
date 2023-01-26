@@ -54,8 +54,7 @@ function route($method, $urlList, $requestData)
 
             if(!$userInsertResult)
             {
-                //400
-                setHTTPStatus("400", "Bad Request");
+                setHTTPStatus("403", "Forbidden");
             }
             else
             {

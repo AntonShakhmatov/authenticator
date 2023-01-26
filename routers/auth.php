@@ -27,7 +27,7 @@ function route($method, $urlList, $requestData)
                     $tokenInsertResult = $Link->query("INSERT INTO tokens(token, userId) VALUES('$token', '$userId')");
                     if(!$tokenInsertResult)
                     {
-                        setHTTPStatus("400", "Bad Request");
+                        setHTTPStatus("403", "Forbidden");
                     }
                     else
                     {
@@ -36,7 +36,7 @@ function route($method, $urlList, $requestData)
                 }
                     else
                     {
-                        setHTTPStatus("400", "Bad Request");
+                        setHTTPStatus("403", "Forbidden");
                     }
 
                     break;

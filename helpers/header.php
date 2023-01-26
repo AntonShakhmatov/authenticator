@@ -19,6 +19,9 @@ function setHTTPStatus($status = "200", $message = null)
             break;   
         case "401":
             $status = "HTTP/1.0 401 Unauthorized";
+            break;
+            case "403":
+            $status = "HTTP/1.0 403 Forbidden";
             break;   
         case "404":
             $status = "HTTP/1.0 404 Not found";

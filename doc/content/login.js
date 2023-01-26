@@ -1,7 +1,7 @@
 const showProfile = () => `
 <div>
     <h2>Login</h2>
-    <i class="task-desc">Token pro uživatele</i>
+    <i class="task-desc">Token pro uživatele, pro autorizace administratora.</i>
     <div class="method">
         <span class="method-post">POST</span><b>/auth/login</b>
     </div>

@@ -1,7 +1,7 @@
 const showLogout = () => `
 <div>
     <h2>Get users</h2>
-    <i class="task-desc">Nové uživatele telegram botu</i>
+    <i class="task-desc">Nové uživatele telegram botu. Přidáva nových uživatelu do databáze, tech kteří psali do bota nebo do skupiny, ve které se bot nachází.</i>
     <div class="method">
     <span class="method-get">GET</span><b>/user</b>
     </div>

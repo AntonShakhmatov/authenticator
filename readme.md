@@ -1,0 +1,1 @@
+authenticator for tg bot (Connection to the database is required and needs to be configured in index.php depending on the table name and its fields. Required bot token to be configured in /routers/user.php. App launched via Docker)

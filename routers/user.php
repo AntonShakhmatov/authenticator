@@ -18,7 +18,7 @@ function route($method, $urlList, $requestData)
             $userFromToken = $Link->query("SELECT userId FROM tokens WHERE token = '$token'")->fetch_assoc();
             if(!is_null($userFromToken))
             {
-                $token1 = "5927059581:AAGf-oKJD9qPupvP_nsyt9OABZhwcoRVTvA";
+                $token1 = "";//enter here tg token
                 $t_web='https://api.telegram.org/bot'.$token1.'/';
                 $update_method=$t_web."getupdates";
 
